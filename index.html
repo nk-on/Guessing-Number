@@ -8,18 +8,18 @@
 </head>
 <body>
     <form action="">
-        <label for="input-range-1">From</label>
-        <input type="number" name = "from" id = "from">
-        <label for="input-range-1">Between</label>
-        <input type="number" name="Between" id="between">
+        <label for="starting">From</label>
+        <input type="number" name = "starting" id = "starting">
+        <label for="end">Between</label>
+        <input type="number" name="end" id="end">
     </form>
     <main class="container">
         <h2>Guess number between <span data-starting>1</span> and  <span data-ending>100</span></h2>
         <form>
             <input type="number" name="guessing-num" id="guessing-num">
-            <button class="submit-button">Submit</button>
+            <button class="submit-button" data-submit>Submit</button>
         </form>
-        <p>You have <span class="chances"></span> Chances</p>
+        <p>You have <span class="chances" data-chances></span> Chances</p>
     </main>
 </body>
 </html>
