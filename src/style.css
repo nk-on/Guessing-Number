@@ -11,10 +11,19 @@
 body{
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:10px;
     background-color: var(--bg-color);
     font-family:"Poppins", sans-serif;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:var(--clr-white)
 }
 .container{
     border-radius: 20px;
