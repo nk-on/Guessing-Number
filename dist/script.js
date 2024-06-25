@@ -6,6 +6,10 @@ const endingNumPlaceHolder = document.querySelector('[data-ending]');
 const guessedNumContainer = document.querySelector('#guessing-num');
 const sumbitButton = document.querySelector('[data-submit]');
 const chancesPlaceHolder = document.querySelector('[data-chances]');
+function guessNumber(startingNum, endingNum) {
+    const targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
+    console.log(targetNumber);
+}
 function validateRange(e) {
     e.preventDefault();
     const startingNum = Number(startingNumContainer.value);
@@ -15,5 +19,6 @@ function validateRange(e) {
         startingNumContainer.value = '';
         endingNumContainer.value = '';
     }
+    guessNumber(startingNum, endingNum);
 }
 sumbitButton.addEventListener('click', validateRange);
