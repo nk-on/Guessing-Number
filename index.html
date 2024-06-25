@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
     <link rel="stylesheet" href="src/style.css">
 </head>
+
 <body>
-    <form action="">
-        <label for="starting">From</label>
-        <input type="number" name = "starting" id = "starting">
-        <label for="end">Between</label>
-        <input type="number" name="end" id="end">
-    </form>
+    <dialog data-dialog>
+        <form action="">
+            <label for="starting">From</label>
+            <input type="number" name="starting" id="starting">
+            <label for="end">Between</label>
+            <input type="number" name="end" id="end">
+        </form>
+        <button class='submit-button' data-submitRange>Submit</button>
+    </dialog>
     <main class="container">
-        <h2>Guess number between <span data-starting>1</span> and  <span data-ending>100</span></h2>
+        <h2>Guess number between <span data-starting>1</span> and <span data-ending>100</span></h2>
         <form>
             <input type="number" name="guessing-num" id="guessing-num">
             <button class="submit-button" data-submit>Submit</button>
         </form>
-        <p>You have <span class="chances" data-chances></span> Chances</p>
+        <p><span data-high-low></span>You have <span class="chances" data-chances></span> Chances</p>
     </main>
     <script src="dist/script.js"></script>
+    <script src="dist/dialog.js"></script>
 </body>
+
 </html>

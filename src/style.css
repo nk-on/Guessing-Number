@@ -8,53 +8,65 @@
   --bg-color: #4a98f7;
   --clr-white: #fff;
 }
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:10px;
-    background-color: var(--bg-color);
-    font-family:"Poppins", sans-serif;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg-color);
+  font-family: 'Poppins', sans-serif;
 }
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color:var(--clr-white)
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-white);
 }
-.container{
-    border-radius: 20px;
-    width: min(500px,80%);
-    background-color: var(--clr-white);
-    box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
+.container {
+  border-radius: 20px;
+  width: min(500px, 80%);
+  background-color: var(--clr-white);
+  box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
-.container form{
-    display: flex;
-    flex-direction: row;
-    gap:5px;
+.container form {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
-.container form input{
-    width: 70px;
-    height: 50px;
+.container form input {
+  width: 70px;
+  height: 50px;
 }
-.submit-button{
-    border-radius: 5px;
-    background-color: var(--bg-color);
-    border: none;
-    padding: 15px;
-    color:var(--clr-white);
-    font-family:"Poppins", sans-serif;
-    gap:10px;
+.submit-button {
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  border: none;
+  padding: 15px;
+  color: var(--clr-white);
+  font-family: 'Poppins', sans-serif;
+  gap: 10px;
 }
-.container h2{
-    font-weight: 200;
+.container h2 {
+  font-weight: 200;
+}
+dialog {
+  margin: auto;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.4);
 }
