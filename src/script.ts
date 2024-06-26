@@ -1,27 +1,15 @@
+import submitRange from "./dialog.js";
 const startingNumContainer = document.querySelector('#starting') as HTMLInputElement;
 const endingNumContainer = document.querySelector('#end') as HTMLInputElement;
+const startingNumForm = document.querySelector('#starting') as HTMLInputElement;
+const endingNumForm = document.querySelector('#end') as HTMLInputElement;
 const startingNumPlaceHolder = document.querySelector('[data-starting]') as HTMLSpanElement;
 const endingNumPlaceHolder = document.querySelector('[data-ending]') as HTMLSpanElement;
 const guessedNumContainer = document.querySelector('#guessing-num') as HTMLInputElement;
 const sumbitButton = document.querySelector('[data-submit]') as HTMLButtonElement;
 const chancesPlaceHolder = document.querySelector('[data-chances]') as HTMLSpanElement;
 const highLowPlaceholder = document.querySelector('[data-high-low]') as HTMLSpanElement;
-function guessNumber(startingNum: number, endingNum: number): () => void {
-    let chances: number = 10;
-    const targetNumber: number = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
-    return () => {
-        console.log(targetNumber)
-        const guessedNum: number = Number(guessedNumContainer.value);
-        if (targetNumber !== guessedNum) {
-            chances--;
-            chancesPlaceHolder.textContent = String(chances);
-        }
-        if(targetNumber === guessedNum){
-            alert('You won !');
-        };
-        guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too high' : highLowPlaceholder.textContent = 'Too low';
-    }
-}
+let targetNumber:number;
 function validateRange(e: Event): void {
     e.preventDefault();
     const startingNum: number = Number(startingNumContainer.value);
@@ -31,7 +19,8 @@ function validateRange(e: Event): void {
         startingNumContainer.value = '';
         endingNumContainer.value = '';
     }
-    const guessNumFun = guessNumber(startingNum, endingNum);
-    guessNumFun();
+    targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
+    startingNumForm.value = '';
+    endingNumForm.value = '';
 }
-sumbitButton.addEventListener('click', validateRange)
+submitRange.addEventListener('click', validateRange)

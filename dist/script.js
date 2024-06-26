@@ -1,29 +1,15 @@
-"use strict";
+import submitRange from "./dialog.js";
 const startingNumContainer = document.querySelector('#starting');
 const endingNumContainer = document.querySelector('#end');
+const startingNumForm = document.querySelector('#starting');
+const endingNumForm = document.querySelector('#end');
 const startingNumPlaceHolder = document.querySelector('[data-starting]');
 const endingNumPlaceHolder = document.querySelector('[data-ending]');
 const guessedNumContainer = document.querySelector('#guessing-num');
 const sumbitButton = document.querySelector('[data-submit]');
 const chancesPlaceHolder = document.querySelector('[data-chances]');
 const highLowPlaceholder = document.querySelector('[data-high-low]');
-function guessNumber(startingNum, endingNum) {
-    let chances = 10;
-    const targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
-    return () => {
-        console.log(targetNumber);
-        const guessedNum = Number(guessedNumContainer.value);
-        if (targetNumber !== guessedNum) {
-            chances--;
-            chancesPlaceHolder.textContent = String(chances);
-        }
-        if (targetNumber === guessedNum) {
-            alert('You won !');
-        }
-        ;
-        guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too high' : highLowPlaceholder.textContent = 'Too low';
-    };
-}
+let targetNumber;
 function validateRange(e) {
     e.preventDefault();
     const startingNum = Number(startingNumContainer.value);
@@ -33,7 +19,8 @@ function validateRange(e) {
         startingNumContainer.value = '';
         endingNumContainer.value = '';
     }
-    const guessNumFun = guessNumber(startingNum, endingNum);
-    guessNumFun();
+    targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
+    startingNumForm.value = '';
+    endingNumForm.value = '';
 }
-sumbitButton.addEventListener('click', validateRange);
+submitRange.addEventListener('click', validateRange);
