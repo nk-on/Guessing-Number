@@ -20,7 +20,9 @@ function validateRange(e: Event): void {
         alert('Starting Number should be less then ending number');
         startingNumContainer.value = '';
         endingNumContainer.value = '';
-    }
+        return;
+    };
+    dialog.close();
     targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
     startingNumForm.value = '';
     endingNumForm.value = '';
