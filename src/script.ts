@@ -34,10 +34,17 @@ function checkGuessedNum() {
     return (e: Event) => {
         e.preventDefault();
         const guessedNum: number = Number(guessedNumContainer.value);
+        console.log(guessedNum,targetNumber)
         if (guessedNum !== targetNumber) {
             chances--;
             chancesPlaceHolder.textContent = String(chances);
+            guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too low' : highLowPlaceholder.textContent = 'Too high';
+            return;
         };
+        if(guessedNum === targetNumber){
+            alert('You Guessed !');
+            return;
+        }
     }
 }
 const validateGuessedNum = checkGuessedNum();
