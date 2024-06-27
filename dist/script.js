@@ -23,6 +23,8 @@ function validateRange(e) {
         return;
     }
     ;
+    startingNumPlaceHolder.textContent = String(startingNum);
+    endingNumPlaceHolder.textContent = String(endingNum);
     dialog.close();
     targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
     startingNumForm.value = '';
@@ -34,7 +36,6 @@ function checkGuessedNum() {
     return (e) => {
         e.preventDefault();
         const guessedNum = Number(guessedNumContainer.value);
-        console.log(guessedNum, targetNumber);
         if (guessedNum !== targetNumber) {
             chances--;
             chancesPlaceHolder.textContent = String(chances);

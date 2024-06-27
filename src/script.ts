@@ -22,6 +22,8 @@ function validateRange(e: Event): void {
         endingNumContainer.value = '';
         return;
     };
+    startingNumPlaceHolder.textContent = String(startingNum);
+    endingNumPlaceHolder.textContent = String(endingNum);
     dialog.close();
     targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
     startingNumForm.value = '';
