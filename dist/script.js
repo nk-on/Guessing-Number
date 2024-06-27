@@ -29,10 +29,19 @@ function validateRange(e) {
     endingNumForm.value = '';
 }
 ;
-function checkGuessedNum(e) {
-    e.preventDefault();
-    const guessedNum = Number(guessedNumContainer.value);
-    console.log(guessedNum);
+function checkGuessedNum() {
+    let chances = 10;
+    return (e) => {
+        e.preventDefault();
+        const guessedNum = Number(guessedNumContainer.value);
+        console.log(guessedNum, targetNumber);
+        if (guessedNum !== targetNumber) {
+            chances--;
+            chancesPlaceHolder.textContent = String(chances);
+        }
+        ;
+    };
 }
+const validateGuessedNum = checkGuessedNum();
 submitRange.addEventListener('click', validateRange);
-sumbitButton.addEventListener('click', checkGuessedNum);
+sumbitButton.addEventListener('click', validateGuessedNum);
