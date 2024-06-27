@@ -10,8 +10,8 @@ const sumbitButton = document.querySelector('[data-submit]') as HTMLButtonElemen
 const chancesPlaceHolder = document.querySelector('[data-chances]') as HTMLSpanElement;
 const highLowPlaceholder = document.querySelector('[data-high-low]') as HTMLSpanElement;
 let targetNumber: number;
-let startingNum;
-let endingNum;
+let startingNum:number;
+let endingNum:number;
 function validateRange(e: Event): void {
     e.preventDefault();
     startingNum = Number(startingNumContainer.value);
