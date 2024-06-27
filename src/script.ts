@@ -1,4 +1,4 @@
-import submitRange from "./dialog.js";
+import {submitRange,dialog} from "./dialog.js";
 const startingNumContainer = document.querySelector('#starting') as HTMLInputElement;
 const endingNumContainer = document.querySelector('#end') as HTMLInputElement;
 const startingNumForm = document.querySelector('#starting') as HTMLInputElement;
@@ -22,5 +22,11 @@ function validateRange(e: Event): void {
     targetNumber = Math.floor(Math.random() * (endingNum - startingNum + 1) + startingNum);
     startingNumForm.value = '';
     endingNumForm.value = '';
+};
+function checkGuessedNum(e:Event){
+    e.preventDefault();
+    const guessedNum:number = Number(guessedNumContainer.value);
+    console.log(guessedNum);
 }
-submitRange.addEventListener('click', validateRange)
+submitRange.addEventListener('click', validateRange);
+sumbitButton.addEventListener('click',checkGuessedNum)

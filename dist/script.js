@@ -1,4 +1,4 @@
-import submitRange from "./dialog.js";
+import { submitRange } from "./dialog.js";
 const startingNumContainer = document.querySelector('#starting');
 const endingNumContainer = document.querySelector('#end');
 const startingNumForm = document.querySelector('#starting');
@@ -23,4 +23,11 @@ function validateRange(e) {
     startingNumForm.value = '';
     endingNumForm.value = '';
 }
+;
+function checkGuessedNum(e) {
+    e.preventDefault();
+    const guessedNum = Number(guessedNumContainer.value);
+    console.log(guessedNum);
+}
 submitRange.addEventListener('click', validateRange);
+sumbitButton.addEventListener('click', checkGuessedNum);
