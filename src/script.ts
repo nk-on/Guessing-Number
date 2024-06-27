@@ -31,9 +31,9 @@ function validateRange(e: Event): void {
     startingNumForm.value = '';
     endingNumForm.value = '';
 };
-function checkGuessedNum() {
+function checkGuessedNum():(e:Event)=> undefined {
     let chances: number = 10;
-    return (e: Event) => {
+    return (e: Event) =>  {
         e.preventDefault();
         const guessedNum: number = Number(guessedNumContainer.value);
         console.log(guessedNum,targetNumber)
