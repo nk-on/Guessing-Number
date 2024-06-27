@@ -9,6 +9,8 @@ const guessedNumContainer = document.querySelector('#guessing-num') as HTMLInput
 const sumbitButton = document.querySelector('[data-submit]') as HTMLButtonElement;
 const chancesPlaceHolder = document.querySelector('[data-chances]') as HTMLSpanElement;
 const highLowPlaceholder = document.querySelector('[data-high-low]') as HTMLSpanElement;
+const gameOverDialog = document.querySelector('[data-dialog-game-over]') as HTMLDialogElement;
+const messege = document.querySelector('[data-messege]') as HTMLHeadingElement;
 let targetNumber: number;
 let startingNum: number;
 let endingNum: number;
@@ -39,14 +41,19 @@ function checkGuessedNum() {
             chances--;
             chancesPlaceHolder.textContent = String(chances);
             guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too low' : highLowPlaceholder.textContent = 'Too high';
-            return;
         };
         if(guessedNum === targetNumber){
-            alert('You Guessed !');
+            messege.textContent = 'You Guessed !';
+            gameOverDialog.show();
             return;
-        }
+        };
+        if(chances === 0){
+            messege.textContent = 'You run out from chances!';
+            gameOverDialog.show();
+            return;
+        };
     }
 }
 const validateGuessedNum = checkGuessedNum();
 submitRange.addEventListener('click', validateRange);
-sumbitButton.addEventListener('click', validateGuessedNum)
+sumbitButton.addEventListener('click', validateGuessedNum);
