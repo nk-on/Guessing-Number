@@ -1,4 +1,4 @@
-import {submitRange,dialog} from "./dialog.js";
+import { submitRange, dialog } from "./dialog.js";
 const startingNumContainer = document.querySelector('#starting') as HTMLInputElement;
 const endingNumContainer = document.querySelector('#end') as HTMLInputElement;
 const startingNumForm = document.querySelector('#starting') as HTMLInputElement;
@@ -9,11 +9,13 @@ const guessedNumContainer = document.querySelector('#guessing-num') as HTMLInput
 const sumbitButton = document.querySelector('[data-submit]') as HTMLButtonElement;
 const chancesPlaceHolder = document.querySelector('[data-chances]') as HTMLSpanElement;
 const highLowPlaceholder = document.querySelector('[data-high-low]') as HTMLSpanElement;
-let targetNumber:number;
+let targetNumber: number;
+let startingNum;
+let endingNum;
 function validateRange(e: Event): void {
     e.preventDefault();
-    const startingNum: number = Number(startingNumContainer.value);
-    const endingNum: number = Number(endingNumContainer.value);
+    startingNum = Number(startingNumContainer.value);
+    endingNum = Number(endingNumContainer.value);
     if (startingNum >= endingNum) {
         alert('Starting Number should be less then ending number');
         startingNumContainer.value = '';
@@ -23,10 +25,10 @@ function validateRange(e: Event): void {
     startingNumForm.value = '';
     endingNumForm.value = '';
 };
-function checkGuessedNum(e:Event){
+function checkGuessedNum(e: Event) {
     e.preventDefault();
-    const guessedNum:number = Number(guessedNumContainer.value);
+    const guessedNum: number = Number(guessedNumContainer.value);
     console.log(guessedNum);
 }
 submitRange.addEventListener('click', validateRange);
-sumbitButton.addEventListener('click',checkGuessedNum)
+sumbitButton.addEventListener('click', checkGuessedNum)
