@@ -59,5 +59,6 @@ function checkGuessedNum(): (e: Event) => undefined {
     }
 };
 const validateGuessedNum = checkGuessedNum();
+restartButton.addEventListener('click', ()=> location.reload());
 submitRange.addEventListener('click', validateRange);
 sumbitButton.addEventListener('click', validateGuessedNum);
