@@ -45,7 +45,7 @@ function checkGuessedNum() {
         if (guessedNum !== targetNumber) {
             chances--;
             chancesPlaceHolder.textContent = String(chances);
-            guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too low' : highLowPlaceholder.textContent = 'Too high';
+            guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too low ' : highLowPlaceholder.textContent = 'Too high ';
         }
         ;
         guessedNumContainer.value = '';
@@ -64,7 +64,7 @@ function checkGuessedNum() {
     };
 }
 ;
-restartButton.addEventListener('click', () => location.reload());
 const validateGuessedNum = checkGuessedNum();
+restartButton.addEventListener('click', () => location.reload());
 submitRange.addEventListener('click', validateRange);
 sumbitButton.addEventListener('click', validateGuessedNum);
