@@ -11,6 +11,7 @@ const chancesPlaceHolder = document.querySelector('[data-chances]') as HTMLSpanE
 const highLowPlaceholder = document.querySelector('[data-high-low]') as HTMLSpanElement;
 const gameOverDialog = document.querySelector('[data-dialog-game-over]') as HTMLDialogElement;
 const messege = document.querySelector('[data-messege]') as HTMLHeadingElement;
+const restartButton = document.querySelector('[data-restart]') as HTMLButtonElement;
 let targetNumber: number;
 let startingNum: number;
 let endingNum: number;
@@ -31,12 +32,12 @@ function validateRange(e: Event): void {
     startingNumForm.value = '';
     endingNumForm.value = '';
 };
-function checkGuessedNum():(e:Event)=> undefined {
+function checkGuessedNum(): (e: Event) => undefined {
     let chances: number = 10;
-    return (e: Event) =>  {
+    return (e: Event) => {
         e.preventDefault();
         const guessedNum: number = Number(guessedNumContainer.value);
-        if(guessedNum > endingNum || guessedNum < startingNum){
+        if (guessedNum > endingNum || guessedNum < startingNum) {
             alert(' Number is out of range')
         }
         if (guessedNum !== targetNumber) {
@@ -44,18 +45,19 @@ function checkGuessedNum():(e:Event)=> undefined {
             chancesPlaceHolder.textContent = String(chances);
             guessedNum > targetNumber ? highLowPlaceholder.textContent = 'Too low' : highLowPlaceholder.textContent = 'Too high';
         };
-        if(guessedNum === targetNumber){
+        guessedNumContainer.value = '';
+        if (guessedNum === targetNumber) {
             messege.textContent = 'You Guessed !';
             gameOverDialog.show();
             return;
         };
-        if(chances === 0){
+        if (chances === 0) {
             messege.textContent = 'You run out from chances!';
             gameOverDialog.show();
             return;
         };
     }
-}
+};
 const validateGuessedNum = checkGuessedNum();
 submitRange.addEventListener('click', validateRange);
 sumbitButton.addEventListener('click', validateGuessedNum);
