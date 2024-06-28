@@ -38,7 +38,9 @@ function checkGuessedNum() {
     return (e) => {
         e.preventDefault();
         const guessedNum = Number(guessedNumContainer.value);
-        console.log(guessedNum, targetNumber);
+        if (guessedNum > endingNum || guessedNum < startingNum) {
+            alert(' Number is out of range');
+        }
         if (guessedNum !== targetNumber) {
             chances--;
             chancesPlaceHolder.textContent = String(chances);

@@ -36,7 +36,9 @@ function checkGuessedNum():(e:Event)=> undefined {
     return (e: Event) =>  {
         e.preventDefault();
         const guessedNum: number = Number(guessedNumContainer.value);
-        console.log(guessedNum,targetNumber)
+        if(guessedNum > endingNum || guessedNum < startingNum){
+            alert(' Number is out of range')
+        }
         if (guessedNum !== targetNumber) {
             chances--;
             chancesPlaceHolder.textContent = String(chances);
